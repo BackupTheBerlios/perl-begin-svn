@@ -1,0 +1,66 @@
+<?xml version='1.0' ?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+"/usr/share/sgml/docbook/xml-dtd-4.1.2/docbookx.dtd"[
+
+<!ENTITY section:learning SYSTEM "learning.xml">
+]>
+
+<book id="index">
+    <bookinfo>
+        <title>The Perl Reference Guide</title>
+
+        <authorgroup>
+            <author>
+                <firstname>Shlomi</firstname>
+                <surname>Fish</surname>
+                <affiliation>
+                    <address>
+                        <email>shlomif@vipe.technion.ac.il</email>
+                    </address>
+                </affiliation>
+            </author>
+        </authorgroup>
+        <releaseinfo>This is version 0.2.0</releaseinfo>
+
+
+        <legalnotice>
+            <!-- Ci vis pacem -->
+            <para>
+                <!-- belum. ;-) -->
+                This document is copyrighted by Larry Wall and other
+                authors under the same terms as the perl*.pod documents.
+            </para>
+        </legalnotice>
+        <revhistory>
+            <revision>
+                <revnumber>1.0</revnumber>
+                <date>1 December 2003</date>
+                <authorinitials>shlomif</authorinitials>
+                <revremark>
+                    Included the book with the Learning Chapter and that's it.
+                </revremark>
+            </revision>
+        </revhistory>
+    </bookinfo>
+
+    &section:learning;
+</book>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: xml
+sgml-omittag:nil
+sgml-shorttag:nil
+sgml-namecase-general:nil
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:4
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+vim:indentexpr=:
+-->

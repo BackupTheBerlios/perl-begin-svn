@@ -1,0 +1,101 @@
+<?xml version='1.0' ?>
+
+<!-- <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oa
+sis-open.org/docbook/xml/4.1.2/docbookx.dtd"[]> -->
+<!-- This comment is meant to settle gvim -->
+
+<chapter id="learning">
+<title>How to Learn Perl</title>
+
+<para>
+In order to effectively use this reference, you need to be familiar with 
+some common Perl basics and pitfalls. Teaching Perl is out of the scope of
+this document, but nonetheless, in this section we will refer you to 
+common ways in which you can learn Perl.
+</para>
+
+<para>
+One note is in order: Perl is positively <emphasis>huge</emphasis>
+and most tutorials and books cover only a subset of it to get going. As a 
+result, you may find yourself suffering from the "for someone who only has 
+a hammer, everything looks like a nail" syndrome. That is, you will try to 
+achieve everythings using only the elements you've learned, and will still 
+not have the tools to write professional Perl programs, much less read the 
+code of experts.
+</para>
+
+<section id="installing">
+
+<title>Installing Perl</title>
+
+<para> 
+To get started using Perl, you should install it on your machine, so you
+can play with it. The first chapter of Simon Cozens' book <ulink
+url="http://learn.perl.org/library/beginning_perl/">Beginning Perl</ulink>
+covers the basics of installing Perl on the most common systems.  
+</para>
+
+</section> <!-- End of Installation Section -->
+
+<section id="learning_learning">
+
+<title>Learning Perl</title>
+
+<para>
+There are chiefly two ways to learn how to program Perl: from online resources
+or by reading a book.
+</para>
+
+<para>
+There are several online resources that give a list of tutorials to learn
+Perl from. One of them is the <ulink url="http://perl-begin.berlios.de/tutorials/">Perl Beginners' Site Online Tutorials Section</ulink>. Another, which is
+more encompassing, but less organized and descriptive is 
+<ulink url="http://dmoz.org/Computers/Programming/Languages/Perl/FAQs,_Help,_and_Tutorials/">the relevant category from the Open Directory Project</ulink>.
+</para>
+
+<para>
+<ulink url="http://learn.perl.org/library/beginning_perl/">
+The online version of Simon Cozens' Beginning Perl</ulink> book is probably 
+the most comprehensive tutorial available. If you wish to get started even more
+quickly then you can try (at your own risk) a different tutorial listed in
+the resources above.
+</para>
+
+<para>
+If you wish to purchase or borrow a book that will guide you through the
+first steps in Perl, then the <ulink url="http://books.perl.org/category/7">Beginner Books category of the Perl Books site</ulink> should be of help. It 
+contains ratings, reviews, information and links about the commonly available
+books.
+</para>
+
+<section id="internationalized">
+
+<title>Resources in Foreign Languages</title>
+
+<para>
+The French Perl Mongers (Perl mongers are Perl user groups around the globe) 
+wrote an <ulink url="http://lea-linux.org/dev/perl.php3">introduction to 
+Perl</ulink> in French. Semeul Vomberg wrote a <ulink url="http://code.semuel.co.il/perlhebtut/index.html">Hebrew Tutorial for Perl</ulink>.
+</para>
+</section> <!-- End of Internationalized Learning Section -->
+</section> <!-- End of the Learning Section -->
+</chapter>
+
+<!-- Keep this comment at the end of the file
+Local variables:
+mode: xml
+sgml-omittag:nil
+sgml-shorttag:nil
+sgml-namecase-general:nil
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:4
+sgml-indent-data:t
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+sgml-parent-document: "fcs_arch_doc.xml"
+End:
+vim:indentexpr=:
+-->
