@@ -315,8 +315,6 @@ sub buildList {
         'sub_expand' => $self->shouldExpandBranch('expand' => $expand),
     );
 
-    print STDERR "styles{list} = $styles{list}\n";
-    
     # my ($start_tag, $end_tag) = genListCode($styles{list}, $selfId,
     # 				    $self->shouldExpandBranch('expand' => $expand));
     push @$html, $self->genStartTag(@args_to_pass);
