@@ -47,6 +47,9 @@ sub get_relative_url
     my $slash_terminated = shift;
 
     my $ret;
+
+    my @this_url_bak = @this_url;
+    my @other_url_bak = @other_url;
     
     while(
         scalar(@this_url) &&
@@ -56,6 +59,11 @@ sub get_relative_url
     {
         shift(@this_url);
         shift(@other_url);
+    }
+
+    if ((! @this_url) && (! @other_url) && (! $base->is_dir()) && (! $to->is_dir()) && scalar(@this_url_bak))
+    {
+        return "./" . $this_url_bak[-1];
     }
 
     if (($base->{'mode'} eq "harddisk") && ($to->is_dir()))
