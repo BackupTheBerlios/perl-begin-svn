@@ -1,6 +1,1 @@
-* Fix the link to the /-URL bug that causes links to seem unavailable.
-
-* Fix the fact that the prev/next/up buttons mozilla nav-bar links 
-(link rel=next) appear at each and every page including the first one
-and last one.
 

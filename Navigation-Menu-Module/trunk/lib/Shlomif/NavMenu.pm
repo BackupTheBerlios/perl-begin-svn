@@ -836,6 +836,12 @@ sub render
 
     while (my ($link_rel, $coords) = each(%links_proto))
     {
+        # This is so we would avoid coordinates that point to the 
+        # root ($coords == []).
+        if (@$coords == 0)
+        {
+            undef($coords);
+        }
         if (defined($coords))
         {
             $nav_links{$link_rel} = $self->get_rel_url_from_coords($coords);
