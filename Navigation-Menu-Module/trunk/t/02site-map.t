@@ -36,7 +36,7 @@ use Shlomif::NavMenu;
     my $expected_text = <<"EOF";
 <ul>
 <li>
-<a href="..">Home</a>
+<a href="../">Home</a>
 </li>
 <li>
 <a href="../me/" title="About Myself">About Me</a> - About Myself
@@ -87,7 +87,7 @@ EOF
     my $expected_text = <<"EOF";
 <ul>
 <li>
-<a href="..">Home</a>
+<a href="../">Home</a>
 </li>
 <li>
 <a href="../me/" title="About Myself">About Me</a> - About Myself
@@ -183,7 +183,7 @@ EOF
     my $expected_text = <<"EOF";
 <ul>
 <li>
-<a href="../..">Home</a>
+<a href="../../">Home</a>
 </li>
 <li>
 <a href="../../me/" title="About Myself">About Me</a> - About Myself
@@ -261,7 +261,7 @@ EOF
     my $expected_text = <<"EOF";
 <ul>
 <li>
-<a href="..">Home</a>
+<a href="../">Home</a>
 </li>
 <li>
 <a href="../me/" title="About Myself">About Me</a> - About Myself

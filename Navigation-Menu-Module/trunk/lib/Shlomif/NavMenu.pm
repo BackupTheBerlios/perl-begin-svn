@@ -291,7 +291,7 @@ sub text_to_url_obj
     my $url = 
         Shlomif::NavMenu::Url->new(
             $text,
-            is_slash_terminated($text),
+            (is_slash_terminated($text) || ($text eq "")),
             "server",
         );
     return $url;
