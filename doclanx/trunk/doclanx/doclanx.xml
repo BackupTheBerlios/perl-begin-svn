@@ -1,9 +1,10 @@
 <?xml version='1.0' ?>
 
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
-"/usr/share/sgml/docbook/xml-dtd-4.1.2/docbookx.dtd"[
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2/EN"
+"/usr/share/sgml/docbook/xml-dtd-4.2/docbookx.dtd"[
 
 <!ENTITY section:learning SYSTEM "learning.xml">
+<!ENTITY section:perlsyn SYSTEM "perlsyn.xml">
 ]>
 
 <book id="index">
@@ -45,6 +46,7 @@
     </bookinfo>
 
     &section:learning;
+    &section:perlsyn;
 </book>
 <!-- Keep this comment at the end of the file
 Local variables:

@@ -3,7 +3,7 @@ DOC=doclanx
 DB2STH_SCRIPTS_FLAGS = -c /etc/sgml/catalog
 
 MAIN_SOURCE = $(DOC).xml
-SOURCES = $(MAIN_SOURCE) learning.xml
+SOURCES = $(MAIN_SOURCE) learning.xml perlsyn.xml
 
 RSYNC = rsync --progress --verbose --rsh=ssh
 
