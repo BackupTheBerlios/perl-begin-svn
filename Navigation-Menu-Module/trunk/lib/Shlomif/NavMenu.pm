@@ -460,17 +460,6 @@ sub render_tree_contents
     return $new_item;
 }
 
-# Formatting rules for gen_site_map
-# 1. Newline after <ul>
-# 2. Newline after </ul>
-# 3. <a href=""> ... </a> in the same line.
-# 4. Newline after </li>.
-# 5. No newline after <li>.
-# 6. Newline after <br />.
-# title= follows the href="" in a.
-
-use constant NOT_VISITED => 0;
-use constant VISITED => 1;
 sub gen_site_map
 {
     my $self = shift;
@@ -549,7 +538,7 @@ sub gen_site_map
         }
         else
         {
-            if (@stack > 1)
+            if ((@stack > 1) && (! $is_separator))
             {
                 if ($top_item->{'num_subs'})
                 {

@@ -2,7 +2,7 @@
 
 use strict;
 
-use Test::More tests => 3;
+use Test::More tests => 4;
 
 use Shlomif::NavMenu;
 
@@ -100,7 +100,7 @@ EOF
 </li>
 </ul>
 EOF
-    is($returned_text, $expected_text, "site_map #1"); # TEST
+    is($returned_text, $expected_text, "site_map #2"); # TEST
 }
 
 {
@@ -217,5 +217,63 @@ EOF
 </li>
 </ul>
 EOF
-    is($returned_text, $expected_text, "site_map #1"); # TEST
+    is($returned_text, $expected_text, "site_map - complex"); # TEST
 }
+
+# Now testing that the separator is safely skipped and does not generate
+# a double </li>
+{
+    my $nav_menu = Shlomif::NavMenu->new(
+        'path_info' => "hello/",
+        'current_host' => "default",
+        'hosts' => { 'default' => { 'base_url' => "http://www.hello.com/" }, },
+        'tree_contents' =>
+        {
+            'host' => "default",
+            'value' => "Top 1",
+            'title' => "T1 Title",
+            'expand_re' => "",
+            'subs' =>
+            [
+                {
+                    'value' => "Home",
+                    'url' => "",
+                },
+                {
+                    'value' => "About Me",
+                    'title' => "About Myself",
+                    'url' => "me/",
+                },
+                {
+                    'separator' => 1,
+                    'skip' => 1,
+                },
+                {
+                    'value' => "Hoola",
+                    'title' => "Hoola Hoop",
+                    'url' => "me-too/",
+                },
+            ],
+        },
+    );
+
+    my $returned_text = $nav_menu->gen_site_map();
+    my $expected_text = <<"EOF";
+<ul>
+<li>
+<a href="..">Home</a>
+</li>
+<li>
+<a href="../me/" title="About Myself">About Me</a> - About Myself
+</li>
+<li>
+<a href="../me-too/" title="Hoola Hoop">Hoola</a> - Hoola Hoop
+</li>
+</ul>
+EOF
+    is($returned_text, $expected_text, "site_map - separator"); # TEST
+
+    
+
+}
+
