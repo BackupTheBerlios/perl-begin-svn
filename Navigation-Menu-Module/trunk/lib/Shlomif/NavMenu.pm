@@ -289,7 +289,7 @@ sub text_to_url_obj
 {
     my $text = shift;
     my $url = 
-        Shlomif::Quad::Pres::Url->new(
+        Shlomif::NavMenu::Url->new(
             $text,
             is_slash_terminated($text),
             "server",
