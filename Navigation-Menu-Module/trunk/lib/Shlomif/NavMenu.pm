@@ -460,6 +460,110 @@ sub render_tree_contents
     return $new_item;
 }
 
+# Formatting rules for gen_site_map
+# 1. Newline after <ul>
+# 2. Newline after </ul>
+# 3. <a href=""> ... </a> in the same line.
+# 4. Newline after </li>.
+# 5. No newline after <li>.
+# 6. Newline after <br />.
+# title= follows the href="" in a.
+
+use constant NOT_VISITED => 0;
+use constant VISITED => 1;
+sub gen_site_map
+{
+    my $self = shift;
+    my $path_info = $self->path_info();
+
+    my @stack = ();
+
+    my $push_into_stack = sub {
+        my %args = (@_);
+        my $node = $args{'node'};
+        my $parent_record = (@stack ? $stack[-1] : +{});
+        
+        my $record = +{};
+        $record->{'node'} = $node;
+        my $subs = 
+            exists($node->{subs}) ? 
+                [ @{$node->{subs}} ] : 
+                [];
+        $record->{'remaining_subs'} = $subs;
+        $record->{'num_subs'} = scalar(@$subs);
+        $record->{'status'} = 0;
+        $record->{'host'} = $node->{host} || $parent_record->{host};
+
+        push @stack, $record;
+    };
+
+    $push_into_stack->( 'node' => $self->{'tree_contents'} );
+
+    my @html;
+
+    push @html, "<ul>";
+    MAIN_LOOP: while (@stack)
+    {
+        my $top_item = $stack[-1];
+        my $status = $top_item->{'status'};
+        my $node = $top_item->{'node'};
+        my $is_separator = $node->{separator};
+        
+        if ((! $is_separator) && (@stack > 1) && (! $status))
+        {
+            push @html, "<li>";
+            $top_item->{status} = 1;
+            my $tag = "<a";
+            my $title = $node->{'title'};
+            $tag .= " href=\"" . 
+                CGI::escapeHTML(
+                    $self->get_cross_host_rel_url(
+                        'host' => $top_item->{host},
+                        'host_url' => $node->{url},
+                        'abs_url' => $node->{abs_url},
+                    )
+                ). "\"";
+            if (defined($title))
+            {
+                $tag .= " title=\"$title\"";
+            }
+            $tag .= ">" . $node->{value} . "</a>";
+
+            if (defined($title))
+            {
+                $tag .= " - $title";
+            }
+            push @html, $tag;
+        }
+        my $rem_subs = $top_item->{'remaining_subs'};
+        if (@$rem_subs)
+        {
+            if (!$status && (@stack > 1))
+            {
+                push @html, "<br />";
+                push @html, "<ul>";
+            }
+            my $new_item = shift(@$rem_subs);
+            $push_into_stack->( 'node' => $new_item);
+            next MAIN_LOOP;
+        }
+        else
+        {
+            if (@stack > 1)
+            {
+                if ($top_item->{'num_subs'})
+                {
+                    push @html, "</ul>";
+                }
+                push @html, "</li>";
+            }
+            pop(@stack);
+        }
+    }
+    push @html, "</ul>";
+    return join("", map { "$_\n" } @html);
+}
+
 sub get_next_coords
 {
     my $self = shift;
