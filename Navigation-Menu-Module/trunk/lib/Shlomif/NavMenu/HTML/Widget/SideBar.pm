@@ -122,43 +122,6 @@ sub convert {
     return bless $tree, $class;
 }
 
-# <readDB> constructs a new HTML::Widget::SideBar from a table in a DB using 
-#  Tree::Numbered::DB.
-# Arguments: By name:
-#     source_name - table name.
-#     source - a DB handle to work with.
-#     action - an action generator, as described in <new>.
-#     cols - ref to a hash with mappings (see Tree::Numbered::DB).
-#     URL_col - shortcut to add the URL column to the cols.
-#     active_num - number of the active item if any.
-# Returns: the tree, modified and re-blessed as an HTML::Widget::SideBar.
-
-sub readDB {
-    my $parent = shift;
-    my $class = (ref($parent) or $parent);
-    my %args = @_;
-
-    my ($table, $dbh) = @args{'source_name', 'source'};
-    return undef unless ($table && $dbh);
-
-    # Make shure there's always an action, even a void one.
-    my $def_action = (exists $args{action}) ? $args{action} : $default_action;
-    my $cols = $args{cols} || {};
-    $cols->{URL_col} = $args{URL_col} if ($args{URL_col});
-    # Default creation of Value is no longer used because we request a field.
-    $cols->{Value_col} ||= 'name';
-
-    use Tree::Numbered::DB 1.01; 
-    my @args = ($table, $dbh, $cols);
-    #read -> revert -> convert: construct a DB tree, loose DBness, make sidebar
-    my $tree = Tree::Numbered::DB->read(@args);
-    $tree->revert;
-    return $class->convert(tree => $tree, 
-			   action => $def_action, 
-			   active_num => $args{active_num});
-}
-
-
 # <getHTML> returns the HTML that shows the sidebar.
 # Arguments: By name:
 #     styles - alternative set of styles. Default will be used if this isn't
