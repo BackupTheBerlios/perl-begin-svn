@@ -1,0 +1,99 @@
+#include '../template.wml'
+
+#include "../lib/books.wml"
+
+<subject "Paper Books" />
+
+<ul>
+<li><a href="#beginners">Books for Beginners</a></li>
+<li><a href="./advanced/">Books for Learning about More Advanced Parts of the Core Language</a></li>
+<li><a href="./topics/">Books for Learning about Specialized Technologies</a></li>
+</ul>
+
+<h2><a name="beginners">Note</a></h2>
+
+<p>
+It is not absolutely necessary to read an organized book to learn Perl. But 
+occassionally many people like it better than reading an ad-hoc tutorial
+on their computer screeens, and then trying to understand the man pages. Here 
+is a list of books that can teach you Perl with some remarks on each book.
+</p>
+
+<h2><a href="http://www.oreilly.com/catalog/lperl3/">Learning Perl</a></h2>
+
+<book:info 
+    authors="Randal L. Schwartz and Tom Phoenix" 
+    publisher="oreilly" 
+    isbn="0596001320" 
+    perlbooksid="101"
+    />
+
+<p>
+Also referred to as "the Llama Book". Considered
+one of the best books for people who are absolute beginners in Perl and even
+in programming in general. This book however, does not cover references, 
+modules, and objects and other important features of the Perl language. As 
+such, you'll usually need to complement your learning by using another
+resource.
+</p>
+
+<p>
+Available online electronically for a registration as part of 
+<a href="http://safari.oreilly.com/">O'Reilly's Safari</a>.
+</p>
+
+<define-tag beginning:perl:url whitespace="delete">
+http://learn.perl.org/library/beginning_perl/
+</define-tag>
+
+<h2><a href="<beginning:perl:url />">Beginning Perl</a></h2>
+
+<book:info
+    authors="Simon Cozens"
+    publisher="wrox"
+    isbn="1861003145"
+    perlbooksid="100"
+    />
+
+<p>
+This book is intended for people who are new to programming and wish to learn
+programming with Perl. Those that already have a past experience in 
+programming, will find it easier, but, otherwise even those without
+will be able to learn through it.
+</p>
+
+<p>
+This book is <a href="<beginning:perl:url />">available 
+online for free download</a>.
+</p>
+
+<h2><a href="http://www.manning.com/Johnson/">Elements of Programming with Perl</a></h2>
+
+<book:info 
+    authors="Andrew L. Johnson" 
+    publisher="manning" 
+    isbn="1884777805"
+    perlbooksid="170"
+    />
+
+<p>
+A book that teaches Perl for people who have no programming experience. Takes
+an unusual approach of introducing them to Literate Programming as well,
+and using it for creating documentation and better organizing the examples.
+</p>
+
+<h2><a href="http://www.amazon.com/exec/obidos/tg/detail/-/073571228X/qid=1042963777/sr=8-2/ref=sr_8_2/104-8970354-3083156?v=glance&amp;s=books&amp;n=507846">Perl for C Programmers</a></h2>
+
+<book:info
+    authors="Steve Oualline"
+    publisher="new-riders"
+    isbn="073571228X"
+    
+    />
+
+<p>
+This book teaches Perl for experienced C Programmers. It is comperehensive
+and encompassing and tries to focus on Perl code that resembles C as much as 
+possible. If you don't know C either, it will probably be of little help.
+</p>
+
