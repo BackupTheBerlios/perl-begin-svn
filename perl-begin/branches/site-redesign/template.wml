@@ -1,0 +1,107 @@
+<set-var latemp_navmenu_object_class="HTML::Widgets::NavMenu::HeaderRole" />
+<set-var latemp_with_xml_declaration="1" />
+<set-var latemp_html_standard="xhtml1.1" />
+<set-var latemp_with_head_meta_tags="1" />
+<set-var latemp_with_favicon="1" />
+
+#include "latemp/latemp-main.wml"
+#include "shlomif/affiliations.wml"
+
+<latemp_lang "en-US" />
+<latemp_encoding "iso-8859-1" />
+<latemp_author "Shlomi Fish" />
+<latemp_common_keywords "Perl, perl, beginners, newbies, learn, web design, Berlios, system administration, Unix, unix, UNIX, Linux, Shlomi Fish" />
+<latemp_meta_desc "Perl Beginners' Site - a Portal for Perl Beginners" />
+<latemp_affiliations_buttons>
+<affil_collection_berlios />
+</latemp_affiliations_buttons>
+<latemp_webmaster>
+<p>
+<b>Webmaster:</b> <a href="http://www.shlomifish.org/">Shlomi Fish</a> (<a href="mailto:shlomif@iglu.org.il">Email - shlomif@iglu.org.il</a>)
+</p>
+</latemp_webmaster>
+
+<latemp_license>
+<p>
+<!-- Creative Commons License -->
+<a rel="license" href="http://creativecommons.org/licenses/by/2.0/"><img 
+alt="Creative Commons License"
+src="$(ROOT)/images/somerights20.png" class="bless" /></a><br />
+This work is licensed under a <a rel="license" 
+href="http://creativecommons.org/licenses/by/2.0/">Creative Commons 
+License</a>.
+<!-- /Creative Commons License -->
+</p>
+
+<!--
+
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="">
+   <dc:title>Better SCM Site Contents</dc:title>
+   <dc:date>2004</dc:date>
+   <dc:description>A Version Control Systems Information and Advocacy carrying site</dc:description>
+   <dc:creator><Agent>
+      <dc:title>Shlomi Fish</dc:title>
+   </Agent></dc:creator>
+   <dc:rights><Agent>
+      <dc:title>Shlomi Fish</dc:title>
+   </Agent></dc:rights>
+   <dc:type rdf:resource="http://purl.org/dc/dcmitype/Text" />
+   <license rdf:resource="http://creativecommons.org/licenses/by/2.0/" />
+</Work>
+
+<License rdf:about="http://creativecommons.org/licenses/by/2.0/">
+   <permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+   <permits rdf:resource="http://web.resource.org/cc/Distribution" />
+   <requires rdf:resource="http://web.resource.org/cc/Notice" />
+   <requires rdf:resource="http://web.resource.org/cc/Attribution" />
+   <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+
+</rdf:RDF>
+
+-->
+</latemp_license>
+
+
+
+<define-tag email:link>
+<a href="mailto:%0">%0</a>
+</define-tag>
+
+<define-tag rellink whitespace="delete">
+<preserve url />
+<set-var %attributes />
+$(ROOT)/<get-var url />
+<restore url />
+</define-tag>
+
+<define-tag site:link whitespace="delete">
+<preserve url />
+<set-var %attributes />
+http://perl-begin.berlios.de/<get-var url />
+<restore url />
+</define-tag>
+
+<define-tag wiki:link whitespace="delete">
+<preserve url />
+<set-var %attributes />
+<ifeq "<get-var url />" "" 
+    "<set-var url="Main_Page" />" 
+    "<set-var url="<get-var url />" />" 
+    />
+<site:link url="Wiki/mediawiki/index.php/" /><get-var url />
+<restore url />
+</define-tag>
+
+<define-tag mailing:list:link whitespace="delete">
+https://lists.berlios.de/mailman/listinfo/perl-begin-help
+</define-tag>
+
+<define-tag web:forum:link whitespace="delete">
+http://developer.berlios.de/forum/forum.php?forum_id=2341
+</define-tag>
+
+<define-tag nothing></define-tag>
